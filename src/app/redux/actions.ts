@@ -9,6 +9,8 @@ import {
   SEARCH_USERS,
   FILTER_USERS,
 } from "./types";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const fetchUsers = (): AppThunk => async (dispatch) => {
   try {
@@ -29,11 +31,13 @@ export const fetchUsers = (): AppThunk => async (dispatch) => {
         type: FETCH_USERS_FAILURE,
         payload: error.message,
       });
+      toast.error(`Error fetching users: ${error.message}`);
     } else {
       dispatch({
         type: FETCH_USERS_FAILURE,
         payload: "An unknown error occurred.",
       });
+      toast.error("An unknown error occurred while fetching users.");
     }
   }
 };
@@ -50,8 +54,10 @@ export const deleteUser =
         type: DELETE_USER,
         payload: userId,
       });
+      toast.success("User deleted successfully.");
     } catch (error) {
       console.log("Error deleting user:", error);
+      toast.error("An error occurred while deleting the user.");
     }
   };
 
@@ -76,8 +82,10 @@ export const updateUser =
         type: UPDATE_USER,
         payload: data,
       });
+      toast.success("User updated successfully.");
     } catch (error) {
       console.log("Error updating user:", error);
+      toast.error("An error occurred while updating the user.");
     }
   };
 
