@@ -3,13 +3,13 @@
 import React, { useState } from "react";
 import { IUser } from "../constants/interfaces";
 
-interface UserItemProps {
+interface IUserItemProps {
   user: IUser;
   onDelete: (userId: number) => void;
   onUpdate: (updatedUser: IUser) => void;
 }
 
-const UserItem: React.FC<UserItemProps> = ({ user, onDelete, onUpdate }) => {
+const UserItem: React.FC<IUserItemProps> = ({ user, onDelete, onUpdate }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedUser, setEditedUser] = useState<IUser>({ ...user });
 

@@ -6,11 +6,11 @@ import { useAsyncDispatch } from "../redux/store";
 import { RootState } from "../redux/store";
 import { useSelector } from "react-redux";
 
-interface FilterProps {
+interface IFilterProps {
   variant: "username" | "email";
 }
 
-const Filter: React.FC<FilterProps> = ({ variant }) => {
+const Filter: React.FC<IFilterProps> = ({ variant }) => {
   const dispatch = useAsyncDispatch();
   const users = useSelector((state: RootState) => state.users);
   const [selectedValue, setSelectedValue] = useState<string>("All");

@@ -9,7 +9,7 @@ import {
   FILTER_USERS,
 } from "./types";
 
-interface State {
+interface IState {
   loading: boolean;
   users: IUser[];
   filteredUsers: IUser[];
@@ -19,7 +19,7 @@ interface State {
   filterOption: string;
 }
 
-const initialState: State = {
+const initialState: IState = {
   loading: false,
   users: [],
   filteredUsers: [],
@@ -29,7 +29,7 @@ const initialState: State = {
   filterOption: "",
 };
 
-const reducer = (state = initialState, action: any): State => {
+const reducer = (state = initialState, action: any): IState => {
   switch (action.type) {
     case FETCH_USERS_REQUEST:
       return {

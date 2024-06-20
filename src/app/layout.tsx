@@ -5,11 +5,11 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import "../styles/globals.css";
 
-interface RootLayoutProps {
+interface IRootLayoutProps {
   children: React.ReactNode;
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => {
   return (
     <html>
       <head>
